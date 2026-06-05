@@ -4,7 +4,7 @@ Dự án này tập trung vào việc xử lý **dữ liệu y tế mất cân b
 
 ---
 
-## 📌 Bối Cảnh & Đặt Vấn Đề
+## Bối Cảnh & Đặt Vấn Đề
 
 Trong dữ liệu y tế công cộng, tỷ lệ người mắc các bệnh lý nguy hiểm (như suy tim) thường rất nhỏ so với nhóm người khỏe mạnh. Trong bộ dữ liệu NHANES sau khi làm sạch và tiền xử lý:
 * **Tổng số mẫu:** 38,570 mẫu.
@@ -15,7 +15,7 @@ Tỷ lệ mất cân bằng xấp xỉ **28:1**. Nếu huấn luyện mô hình 
 
 ---
 
-## 🛠️ Quy Trình Thực Hiện (Pipeline)
+## Quy Trình Thực Hiện (Pipeline)
 
 ### 1. Thu thập & Làm sạch dữ liệu (Data Crawling & Cleaning)
 * Tự động tải 63 file dữ liệu định dạng SAS (`.XPT`) từ CDC Hoa Kỳ thuộc 7 chu kỳ khảo sát khác nhau.
@@ -53,7 +53,7 @@ Ba mô hình học máy được so sánh và đánh giá chéo:
 
 ---
 
-## 📊 Kết Quả Đánh Giá Mô Hình
+## Kết Quả Đánh Giá Mô Hình
 
 Do bài toán y tế ưu tiên phát hiện tối đa bệnh nhân suy tim, chúng ta tập trung vào **Recall** trên tập kiểm thử độc lập (Test Set).
 
@@ -79,7 +79,7 @@ Do bài toán y tế ưu tiên phát hiện tối đa bệnh nhân suy tim, chú
 
 ---
 
-## 🤝 Mô hình Ensemble & Dự đoán tương tác (Interactive Prediction)
+## Mô hình Ensemble & Dự đoán tương tác (Interactive Prediction)
 
 Để tận dụng ưu điểm của cả ba thuật toán, notebook xây dựng một mô hình **Weighted Ensemble** (Kết hợp có trọng số) dựa trên xác suất dự đoán của các mô hình thành phần:
 * **Logistic Regression:** Trọng số **0.6** (Mô hình chính, cân bằng tốt nhất).
@@ -90,7 +90,7 @@ Ngưỡng phân loại (Decision Threshold) của Ensemble được thiết lậ
 
 ---
 
-## 📁 Cấu Trúc Thư Mục Dự Án
+## Cấu Trúc Thư Mục Dự Án
 
 ```
 ├── Data/
@@ -105,7 +105,7 @@ Ngưỡng phân loại (Decision Threshold) của Ensemble được thiết lậ
 
 ---
 
-## 🚀 Hướng Dẫn Cài Đặt & Chạy Dự Án
+## Hướng Dẫn Cài Đặt & Chạy Dự Án
 
 ### 1. Cài đặt môi trường
 Đảm bảo bạn đã cài đặt Python (phiên bản khuyến nghị `>= 3.10`). Di chuyển vào thư mục dự án và cài đặt các thư viện phụ thuộc:
@@ -121,6 +121,6 @@ Mở và chạy file `imbalanced.ipynb` bằng Jupyter Notebook hoặc VS Code:
 jupyter notebook imbalanced.ipynb
 ```
 
-### 💡 Lưu ý khi chạy dữ liệu:
+### Lưu ý khi chạy dữ liệu:
 * **Tiền xử lý SQL Server:** Đoạn mã tiền xử lý dữ liệu thô đầu notebook yêu cầu kết nối cơ sở dữ liệu SQL Server cục bộ (được cấu hình với server `DESKTOP-B1NE7EL`).
 * **Bỏ qua bước SQL:** Nếu bạn không cài đặt SQL Server hoặc không muốn tải lại dữ liệu thô từ đầu, bạn có thể **bắt đầu chạy thẳng từ phần "EDA & Visualization" (Cell 36 trở đi)**, vì bộ dữ liệu sạch đã được lưu sẵn tại `Data/data.csv` và sẽ được tải trực tiếp bằng Pandas.
